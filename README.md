@@ -4,8 +4,9 @@ Run Spark on Kubernetes on a local Kubernetes cluster using Kind. It includes th
 
 - [Spark operator](https://github.com/kubeflow/spark-operator)
 - [Apache YuniKorn](https://yunikorn.apache.org/)
+- [Ingress NGINX controller](https://github.com/kubernetes/ingress-nginx)
 
 ## Setup
 
-- Run `make setup` to create a Kind cluster and install all the addons.
+- Run `make setup` to create a Kind cluster and install all addons.
 - Run `make help` to view all the available targets.
