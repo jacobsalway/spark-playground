@@ -15,10 +15,16 @@ delete-cluster: ## Delete the Kind cluster
 ##@ Addons
 
 addons: ## Install all the addons
-	$(MAKE) yunikorn
+	$(MAKE) yunikorn spark-operator
 
 yunikorn: ## Install Yunikorn
 	helm upgrade --install \
-		--namespace yunikorn --create-namespace --wait \
+		--namespace yunikorn --create-namespace --wait --wait-for-jobs \
 		--repo https://apache.github.io/yunikorn-release --version 1.5.1 \
 		yunikorn yunikorn
+
+spark-operator:
+	helm upgrade --install \
+		--namespace spark-operator --create-namespace --wait --wait-for-jobs \
+		--repo https://kubeflow.github.io/spark-operator --version 1.4.5 \
+		spark-operator spark-operator
