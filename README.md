@@ -9,5 +9,5 @@ Run Spark on Kubernetes on a local Kubernetes cluster using Kind. It includes th
 
 ## Setup
 
-- Run `make setup` to create a Kind cluster and install all addons.
-- Run `make help` to view all the available targets.
+Ensure you have [`helmfile`](https://github.com/helmfile/helmfile) installed,
+then run `make setup` to create a Kind cluster and install all the addons using `helmfile sync`.

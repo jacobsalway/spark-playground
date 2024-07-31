@@ -1,0 +1,39 @@
+helmDefaults:
+  wait: true
+  waitForJobs: true
+  createNamespace: true
+
+repositories:
+  - name: yunikorn
+    url: https://apache.github.io/yunikorn-release
+
+  - name: spark-operator
+    url: https://kubeflow.github.io/spark-operator
+
+  - name: prometheus-community
+    url: https://prometheus-community.github.io/helm-charts
+
+  - name: ingress-nginx
+    url: https://kubernetes.github.io/ingress-nginx
+
+releases:
+  - name: yunikorn
+    namespace: yunikorn
+    chart: yunikorn/yunikorn
+    version: 1.5.1
+
+  - name: spark-operator
+    namespace: spark-operator
+    chart: spark-operator/spark-operator
+    version: 1.4.5
+
+  - name: kube-prometheus-stack
+    namespace: monitoring
+    chart: prometheus-community/kube-prometheus-stack
+    version: 61.3.2
+
+  - name: ingress-nginx
+    namespace: ingress-nginx
+    chart: ingress-nginx/ingress-nginx
+    values:
+      - https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/hack/manifest-templates/provider/kind/values.yaml
