@@ -20,7 +20,7 @@ releases:
   - name: yunikorn
     namespace: yunikorn
     chart: yunikorn/yunikorn
-    version: 1.5.1
+    version: 1.5.2
 
   - name: spark-operator
     namespace: spark-operator
