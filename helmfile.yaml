@@ -10,12 +10,6 @@ repositories:
   - name: spark-operator
     url: https://kubeflow.github.io/spark-operator
 
-  - name: prometheus-community
-    url: https://prometheus-community.github.io/helm-charts
-
-  - name: ingress-nginx
-    url: https://kubernetes.github.io/ingress-nginx
-
 releases:
   - name: yunikorn
     namespace: yunikorn
@@ -25,15 +19,12 @@ releases:
   - name: spark-operator
     namespace: spark-operator
     chart: spark-operator/spark-operator
-    version: 1.4.5
-
-  - name: kube-prometheus-stack
-    namespace: monitoring
-    chart: prometheus-community/kube-prometheus-stack
-    version: 61.3.2
-
-  - name: ingress-nginx
-    namespace: ingress-nginx
-    chart: ingress-nginx/ingress-nginx
+    version: 1.4.6
     values:
-      - https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/hack/manifest-templates/provider/kind/values.yaml
+      - name: sparkJobNamespaces
+        value: [default]
+      - name: webhook.enable
+        value: true
+      - name: batchScheduler.enable
+        value: true
+
