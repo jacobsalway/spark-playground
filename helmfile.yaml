@@ -14,17 +14,16 @@ releases:
   - name: yunikorn
     namespace: yunikorn
     chart: yunikorn/yunikorn
-    version: 1.5.2
+    version: 1.6.0
 
   - name: spark-operator
     namespace: spark-operator
     chart: spark-operator/spark-operator
-    version: 1.4.6
+    version: 2.0.0
     values:
-      - name: sparkJobNamespaces
-        value: [default]
-      - name: webhook.enable
-        value: true
-      - name: batchScheduler.enable
-        value: true
-
+      - spark:
+          jobNamespaces: [default]
+        controller:
+          batchScheduler:
+            enable: true
+            default: yunikorn
