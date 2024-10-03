@@ -1,10 +1,4 @@
-# spark-infra
+# spark-playground
 
-Run Spark on Kubernetes on a local Kubernetes cluster using Kind. It includes the following:
+1. Run `./setup.sh` to create a Kind cluster, pre-load the operator and Spark images, and install the operator.
 
-- [Spark Operator](https://github.com/kubeflow/spark-operator)
-- [Apache YuniKorn](https://yunikorn.apache.org/)
-
-## How to run
-
-`kind create cluster --wait=1m && helmfile sync`
